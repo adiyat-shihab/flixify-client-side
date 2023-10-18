@@ -1,5 +1,5 @@
 import videobg from "../../assets/video.mp4";
-import { Form } from "../Form/Form.jsx";
+import { LoginForm } from "./Login Form/LoginForm.jsx";
 
 export const Login = () => {
   return (
@@ -15,7 +15,7 @@ export const Login = () => {
             " h-full absolute top-0 flex justify-center items-center w-full"
           }
         >
-          <Form />
+          <LoginForm />
         </div>
       </div>
     </>

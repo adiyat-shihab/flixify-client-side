@@ -1,8 +1,9 @@
 import { HiMiniEye, HiMiniEyeDropper } from "react-icons/hi2";
 import { useState } from "react";
 import { HiEye, HiEyeOff } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
-export const Form = () => {
+export const LoginForm = () => {
   const [see, setSee] = useState(false);
   return (
     <>
@@ -79,12 +80,12 @@ export const Form = () => {
                     />
                     {see ? (
                       <HiEyeOff
-                        className={"text-white absolute right-4"}
+                        className={"text-white absolute right-4 cursor-pointer"}
                         onClick={() => setSee(!see)}
                       />
                     ) : (
                       <HiEye
-                        className={"text-white absolute right-4"}
+                        className={"text-white absolute right-4 cursor-pointer"}
                         onClick={() => setSee(!see)}
                       />
                     )}
@@ -140,12 +141,12 @@ export const Form = () => {
 
                 <p className="text-base text-[#adadad]">
                   Not a member yet?
-                  <a
-                    href="javascript:void(0)"
+                  <Link
                     className="text-red-500 hover:underline"
+                    to={"/register"}
                   >
                     Sign Up
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
