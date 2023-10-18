@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
   return (
     <>
-      <div className={"bg-black flex justify-between items-center px-14 "}>
+      <div className={"bg-[#000000] flex justify-between items-center px-14  "}>
         <div className={"flex  items-center "}>
           <img
             src="https://i.ibb.co/1M5qyPW/Abstract-Breaking-Live-News-Free-Logo.png"

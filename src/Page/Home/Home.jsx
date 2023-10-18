@@ -5,10 +5,7 @@ import { Navbar } from "../../Subpage/Navbar.jsx";
 export const Home = () => {
   return (
     <>
-      <Navbar />
-
       <Collection />
-      <Footer />
     </>
   );
 };

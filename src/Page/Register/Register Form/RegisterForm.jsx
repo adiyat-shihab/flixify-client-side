@@ -2,7 +2,7 @@ import { HiEye, HiEyeOff } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export const RegisterForm = () => {
+export const RegisterForm = ({ handleSubmit, passvalidation, validation }) => {
   const [see, setSee] = useState(false);
   return (
     <>
@@ -12,7 +12,7 @@ export const RegisterForm = () => {
           href="https://cdn.tailgrids.com/tailgrids-fallback.css"
         />
 
-        <section className=" ">
+        <section className="  ">
           <div className="container">
             <div className="flex flex-wrap -mx-4">
               <div className="w-full px-4">
@@ -44,10 +44,12 @@ export const RegisterForm = () => {
                       className={" h-[7.0625rem] -ml-6"}
                     />
                   </div>
-                  <form>
+
+                  <form onSubmit={handleSubmit}>
                     <div className="mb-6 flex gap-4">
                       <input
                         type="text"
+                        name="name"
                         placeholder="Name"
                         className="
                         w-full
@@ -60,9 +62,11 @@ export const RegisterForm = () => {
                         outline-none
 
                         "
+                        required
                       />
                       <input
                         type="text"
+                        name="image"
                         placeholder="Image URL"
                         className="
                         w-full
@@ -75,12 +79,15 @@ export const RegisterForm = () => {
                         outline-none
 
                         "
+                        required
                       />
                     </div>
                     <div className="mb-6">
                       <input
-                        type="text"
+                        type="email"
+                        name="email"
                         placeholder="Email"
+                        required
                         className="
                         w-full
                         rounded-md
@@ -98,6 +105,8 @@ export const RegisterForm = () => {
                       <input
                         type={see ? "text" : "password"}
                         placeholder="Password"
+                        required
+                        name="password"
                         className="
                         w-full
                         rounded-md
@@ -126,10 +135,12 @@ export const RegisterForm = () => {
                         />
                       )}
                     </div>
+                    <p className=" text-red-500">{validation}</p>
+                    <p className={"text-red-500"}>{passvalidation}</p>
                     <div className="mb-10">
                       <input
                         type="submit"
-                        value="Sign In"
+                        value="Sign Up"
                         className="
                         w-full
                         rounded-md
@@ -147,8 +158,7 @@ export const RegisterForm = () => {
                   <p className="text-base mb-6 text-[#adadad]">Connect With</p>
                   <ul className="flex justify-between -mx-2 mb-12">
                     <li className="px-2 w-full">
-                      <a
-                        href="javascript:void(0)"
+                      <div
                         className="
                         flex
                         h-11
@@ -171,7 +181,7 @@ export const RegisterForm = () => {
                             fill="white"
                           />
                         </svg>
-                      </a>
+                      </div>
                     </li>
                   </ul>
 

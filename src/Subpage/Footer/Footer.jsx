@@ -3,7 +3,7 @@ export const Footer = () => {
     <>
       <div
         className={
-          "h-[31.25rem] bg-[#010017] flex justify-center items-center text-red-500 text-center cursor-default"
+          "h-[31.25rem]  bg-[#010017] flex justify-center items-center text-red-500 text-center cursor-default"
         }
       >
         <div>
