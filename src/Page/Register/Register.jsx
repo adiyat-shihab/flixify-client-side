@@ -38,9 +38,25 @@ export const Register = () => {
           console.log(result.user);
 
           updateProfiles(name, photo);
+
+          const user = { email, password, photo, name };
+          fetch("http://localhost:5001/register", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data?.insertedId) {
+                console.log("user added to the database");
+              }
+            });
+
           setTimeout(() => {
             window.location.href = "/";
-          }, 2000);
+          }, 3000);
         })
         .catch((err) => {
           setValidation("Email Already in Use");

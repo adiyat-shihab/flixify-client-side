@@ -37,7 +37,7 @@ export const Navbar = () => {
               Home
             </button>
           </Link>{" "}
-          <Link to={"/"}>
+          <Link to={"/addProduct"}>
             <button
               className={
                 "cursor-pointer navLink2  bg-[#ff003c] text-[#050a0e] font-bold text-[0.85rem] fontButton uppercase h-[4.5rem] px-6 -mr-5 "
