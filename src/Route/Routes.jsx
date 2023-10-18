@@ -3,6 +3,7 @@ import { Home } from "../Page/Home/Home.jsx";
 import { Login } from "../Page/Login/Login.jsx";
 import { Register } from "../Page/Register/Register.jsx";
 import App from "../App.jsx";
+import { PrivateLoginRoute } from "../Component/PrivateLoginRoute/PrivateLoginRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,11 +16,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <Register />,
+        element: (
+          <PrivateLoginRoute>
+            <Register />
+          </PrivateLoginRoute>
+        ),
       },
       {
         path: "/login",
-        element: <Login />,
+        element: (
+          <PrivateLoginRoute>
+            <Login />
+          </PrivateLoginRoute>
+        ),
       },
     ],
   },

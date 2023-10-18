@@ -1,6 +1,16 @@
 import "./cyberpunkButton.css";
 import { Link } from "react-router-dom";
+import { authContext } from "../Auth Provider/AuthContext.jsx";
+import { useContext } from "react";
 export const Navbar = () => {
+  const { user, SingOut } = useContext(authContext);
+  const hanldeSignOut = () => {
+    SingOut()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <>
       <div className={"bg-[#000000] flex justify-between items-center px-14  "}>
@@ -46,13 +56,21 @@ export const Navbar = () => {
           </Link>
         </div>
         <div>
-          <Link to={"/register"}>
-            <button className="btn btn--secondary">
-              <span className="btn__content ">Join Now</span>
+          {user ? (
+            <button className="btn btn--secondary" onClick={hanldeSignOut}>
+              <span className="btn__content ">Log Out</span>
               <span className="btn__glitch"></span>
               <span className="btn__label"></span>
             </button>
-          </Link>
+          ) : (
+            <Link to={"/register"}>
+              <button className="btn btn--secondary">
+                <span className="btn__content ">Join Now</span>
+                <span className="btn__glitch"></span>
+                <span className="btn__label"></span>
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </>

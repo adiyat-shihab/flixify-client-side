@@ -3,7 +3,7 @@ import { useState } from "react";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
-export const LoginForm = () => {
+export const LoginForm = ({ handleSignIn }) => {
   const [see, setSee] = useState(false);
   return (
     <>
@@ -44,10 +44,11 @@ export const LoginForm = () => {
                     className={" h-[7.0625rem] -ml-6"}
                   />
                 </div>
-                <form>
+                <form onSubmit={handleSignIn}>
                   <div className="mb-6">
                     <input
-                      type="text"
+                      type="email"
+                      name="email"
                       placeholder="Email"
                       className="
                         w-full
@@ -66,6 +67,7 @@ export const LoginForm = () => {
                     <input
                       type={see ? "text" : "password"}
                       placeholder="Password"
+                      name="password"
                       className="
                         w-full
                         rounded-md
@@ -111,8 +113,7 @@ export const LoginForm = () => {
                 <p className="text-base mb-6 text-[#adadad]">Connect With</p>
                 <ul className="flex justify-between -mx-2 mb-12">
                   <li className="px-2 w-full">
-                    <a
-                      href="javascript:void(0)"
+                    <div
                       className="
                         flex
                         h-11
@@ -135,7 +136,7 @@ export const LoginForm = () => {
                           fill="white"
                         />
                       </svg>
-                    </a>
+                    </div>
                   </li>
                 </ul>
 
