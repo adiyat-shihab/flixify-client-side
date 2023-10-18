@@ -1,3 +1,5 @@
+import { Link, Navigate } from "react-router-dom";
+
 export const BrandsList = ({ data }) => {
   const { brand_image, brand_name } = data;
   return (
@@ -17,11 +19,13 @@ export const BrandsList = ({ data }) => {
           </div>
         </figure>
         <div className="card-body items-center text-center my-8">
-          <button className="btn btn--secondary ">
-            <span className="btn__content ">{brand_name}</span>
-            <span className="btn__glitch"></span>
-            <span className="btn__label"></span>
-          </button>
+          <Link to={`/brandDetails/${brand_name.toLowerCase()}`}>
+            <button className="btn btn--secondary ">
+              <span className="btn__content ">{brand_name}</span>
+              <span className="btn__glitch"></span>
+              <span className="btn__label"></span>
+            </button>
+          </Link>
         </div>
       </div>
     </div>
