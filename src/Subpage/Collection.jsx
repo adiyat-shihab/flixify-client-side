@@ -1,5 +1,4 @@
 import videobg from "../assets/video.mp4";
-import "./shadow.css";
 export const Collection = () => {
   return (
     <>
