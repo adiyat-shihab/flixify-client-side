@@ -9,6 +9,9 @@ export const Register = () => {
   const { SignUp, updateProfiles, user, googleSignIn } =
     useContext(authContext);
   const [passvalidation, setPassValidation] = useState("");
+  const handleGoogleLogin = () => {
+    googleSignIn().then((result) => console.log(result.user));
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const event = e.target;
@@ -61,6 +64,7 @@ export const Register = () => {
               handleSubmit={handleSubmit}
               validation={validation}
               passvalidation={passvalidation}
+              handleGoogleLogin={handleGoogleLogin}
             />
           </div>
         </div>

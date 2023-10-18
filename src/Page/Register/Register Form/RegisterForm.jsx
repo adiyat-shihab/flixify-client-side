@@ -2,7 +2,12 @@ import { HiEye, HiEyeOff } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export const RegisterForm = ({ handleSubmit, passvalidation, validation }) => {
+export const RegisterForm = ({
+  handleSubmit,
+  passvalidation,
+  validation,
+  handleGoogleLogin,
+}) => {
   const [see, setSee] = useState(false);
   return (
     <>
@@ -159,7 +164,9 @@ export const RegisterForm = ({ handleSubmit, passvalidation, validation }) => {
                   <ul className="flex justify-between -mx-2 mb-12">
                     <li className="px-2 w-full">
                       <div
+                        onClick={handleGoogleLogin}
                         className="
+                        cursor-pointer
                         flex
                         h-11
                         items-center

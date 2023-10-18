@@ -14,6 +14,12 @@
 .navLink2{
     clip-path: polygon(12% 0%, 99.5% 0%, 87.5% 100%, 0% 100%);
 }
+.userName{
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}
+.userProfile{
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+}
 
 .btn {
     width: 230px;
