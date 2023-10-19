@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setSpinner(false);
-    }, 5000);
+    }, 4000);
   }, []);
   return (
     <>

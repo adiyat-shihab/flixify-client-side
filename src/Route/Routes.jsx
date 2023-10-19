@@ -7,6 +7,7 @@ import { PrivateLoginRoute } from "../Component/PrivateLoginRoute/PrivateLoginRo
 import { AddProduct } from "../Page/Add Product/AddProduct.jsx";
 import { PrivateRoute } from "../Component/Private Route/PrivateRoute.jsx";
 import { BrandDetails } from "../Page/Brands/BrandDetails.jsx";
+import { ProductDetails } from "../Page/Product Details/ProductDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <BrandDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/product/:id",
+        element: (
+          <PrivateRoute>
+            <ProductDetails />
           </PrivateRoute>
         ),
       },

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Rate } from "antd";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
@@ -11,13 +11,13 @@ export const BrandDetails = () => {
   };
   const param = useParams();
   const [datas, setDatas] = useState([]);
-  console.log(datas);
   useEffect(() => {
     fetch(`http://localhost:5001/${param.name}`)
       .then((data) => data.json())
       .then((data) => setDatas(data));
   }, []);
 
+  datas.map((data) => console.log(data?._id));
   return (
     <>
       <div className={"py-16 bg-black"}>
@@ -32,6 +32,7 @@ export const BrandDetails = () => {
                 className={"w-fit h-fit mx-auto"}
               />
             </div>
+
             <div className={"bg-black"}>
               <img
                 src={datas[1]?.image}
@@ -102,11 +103,14 @@ export const BrandDetails = () => {
                 />
               </div>
 
-              <div className="card-body items-center flex px-4 gap-6 text-center py-8">
+              <div className="card-body items-center flex px-4 gap-6 text-center py-8 ">
+                {" "}
                 <button className="btn btn--secondary ">
-                  <span className="btn__content ">Details</span>
-                  <span className="btn__glitch"></span>
-                  <span className="btn__label"></span>
+                  <Link to={`/product/${data?._id}`}>
+                    <span className="btn__content ">Details</span>
+                    <span className="btn__glitch"></span>
+                    <span className="btn__label"></span>
+                  </Link>
                 </button>{" "}
                 <button className="btn btn--secondary ">
                   <span className="btn__content ">Update</span>

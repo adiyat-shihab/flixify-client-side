@@ -1,13 +1,10 @@
-import { LoginForm } from "../Login/Login Form/LoginForm.jsx";
 import { RegisterForm } from "./Register Form/RegisterForm.jsx";
 import { useContext, useState } from "react";
-import AuthProvider, { authContext } from "../../Auth Provider/AuthContext.jsx";
+import { authContext } from "../../Auth Provider/AuthContext.jsx";
 
 export const Register = () => {
   const [validation, setValidation] = useState("");
-  const [see, setSee] = useState(false);
-  const { SignUp, updateProfiles, user, googleSignIn } =
-    useContext(authContext);
+  const { SignUp, updateProfiles, googleSignIn } = useContext(authContext);
   const [passvalidation, setPassValidation] = useState("");
   const handleGoogleLogin = () => {
     googleSignIn().then((result) => console.log(result.user));
@@ -35,25 +32,7 @@ export const Register = () => {
     } else {
       SignUp(email, password)
         .then((result) => {
-          console.log(result.user);
-
           updateProfiles(name, photo);
-
-          const user = { email, password, photo, name };
-          fetch("http://localhost:5001/register", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(user),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data?.insertedId) {
-                console.log("user added to the database");
-              }
-            });
-
           setTimeout(() => {
             window.location.href = "/";
           }, 3000);
