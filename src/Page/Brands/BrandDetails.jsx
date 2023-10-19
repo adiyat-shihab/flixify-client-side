@@ -106,16 +106,18 @@ export const BrandDetails = () => {
               <div className="card-body items-center flex px-4 gap-6 text-center py-8 ">
                 {" "}
                 <button className="btn btn--secondary ">
-                  <Link to={`/product/${data?._id}`}>
+                  <Link to={`/product/${data?._id}/${data.brand}`}>
                     <span className="btn__content ">Details</span>
                     <span className="btn__glitch"></span>
                     <span className="btn__label"></span>
                   </Link>
                 </button>{" "}
                 <button className="btn btn--secondary ">
-                  <span className="btn__content ">Update</span>
-                  <span className="btn__glitch"></span>
-                  <span className="btn__label"></span>
+                  <Link to={`/update/${data?._id}/${data.brand}`}>
+                    <span className="btn__content ">Update</span>
+                    <span className="btn__glitch"></span>
+                    <span className="btn__label"></span>
+                  </Link>
                 </button>
               </div>
             </div>

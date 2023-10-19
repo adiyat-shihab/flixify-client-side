@@ -1,12 +1,26 @@
-import "/src/Subpage/cyberpunkButton.css";
-import { StarFilled, StarOutlined } from "@ant-design/icons";
-import { Rate } from "antd";
-import { useState } from "react";
-import "/src/Page/Add Product/Border/Border.css";
+import { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
-export const AddProduct = () => {
-  const [rating, setRating] = useState(0);
-  const handleSubmit = (e) => {
+import { Rate } from "antd";
+import { StarFilled, StarOutlined } from "@ant-design/icons";
+import { useParams } from "react-router-dom";
+
+export const Update = () => {
+  const params = useParams();
+  console.log(params);
+  const [data, setData] = useState({});
+  console.log(data);
+  useEffect(() => {
+    fetch(`http://localhost:5001/${params.brand}/${params.id}`)
+      .then((data) => data.json())
+      .then((result) => {
+        setData(result);
+      });
+  }, []);
+  const { brand, name, image, price, type, description } = data;
+
+  const [rating, setRating] = useState(data.rating);
+
+  const handleFind = (e) => {
     e.preventDefault();
     const form = e.target;
     const brand = form.brand.value;
@@ -19,8 +33,8 @@ export const AddProduct = () => {
     const product = { brand, name, image, price, type, description, rating };
 
     if (brand === "netflix") {
-      return fetch("http://localhost:5001/netflixpost", {
-        method: "POST",
+      return fetch(`http://localhost:5001/neflixput/${data._id}`, {
+        method: "PUT",
         headers: {
           "content-type": "application/json",
         },
@@ -28,8 +42,9 @@ export const AddProduct = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data.insertedId) {
-            toast.success("Product Add Successfully");
+          console.log(data);
+          if (data?.modifiedCount) {
+            toast.success("Product Update  Successfully");
           }
         });
     }
@@ -45,6 +60,7 @@ export const AddProduct = () => {
         .then((data) => {
           if (data?.insertedId) {
             console.log("user added to the database");
+            toast.success("Product Update  Successfully");
           }
         });
     }
@@ -60,6 +76,7 @@ export const AddProduct = () => {
         .then((data) => {
           if (data?.insertedId) {
             console.log("user added to the database");
+            toast.success("Product Update  Successfully");
           }
         });
     }
@@ -75,6 +92,7 @@ export const AddProduct = () => {
         .then((data) => {
           if (data?.insertedId) {
             console.log("user added to the database");
+            toast.success("Product Update  Successfully");
           }
         });
     }
@@ -90,6 +108,7 @@ export const AddProduct = () => {
         .then((data) => {
           if (data?.insertedId) {
             console.log("user added to the database");
+            toast.success("Product Update  Successfully");
           }
         });
     }
@@ -105,6 +124,7 @@ export const AddProduct = () => {
         .then((data) => {
           if (data?.insertedId) {
             console.log("user added to the database");
+            toast.success("Product Update  Successfully");
           }
         });
     }
@@ -122,7 +142,7 @@ export const AddProduct = () => {
           <h1 className="text-xl font-bold   capitalize dark:text-white fontButton text-[#050a0e] ">
             Add Product
           </h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleFind}>
             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
               <div>
                 <label className=" fontButton font-bold dark:text-gray-200 text-[#050a0e]">
@@ -131,6 +151,7 @@ export const AddProduct = () => {
                 <input
                   id="name"
                   type="text"
+                  defaultValue={name}
                   placeholder="Name"
                   className="block w-full px-4 py-2 mt-2 text-[#1D1E22] font-bold  outline-none  placeholder-[#1D1E22] border-b-2 placeholder:font-bold  bg-[#ff003c] border-[#1D1E22]"
                   name="name"
@@ -145,6 +166,7 @@ export const AddProduct = () => {
                 <input
                   id="image"
                   placeholder="Image URL"
+                  defaultValue={image}
                   type="text"
                   className="block w-full px-4 py-2 mt-2  font-bold  outline-none  placeholder-[#1D1E22] border-b-2 placeholder:font-bold  bg-[#ff003c] border-[#1D1E22] text-[#1D1E22]"
                   name="image"
@@ -160,6 +182,7 @@ export const AddProduct = () => {
                   placeholder="Price"
                   id="price"
                   type="number"
+                  defaultValue={price}
                   className="block w-full px-4 py-2 mt-2  font-bold  outline-none  placeholder-[#1D1E22] border-b-2 placeholder:font-bold  bg-[#ff003c] border-[#1D1E22] text-[#1D1E22]"
                   name="price"
                   required
@@ -173,6 +196,7 @@ export const AddProduct = () => {
                 <select
                   className="block w-full px-4 py-2 mt-2   outline-none  placeholder-[#1D1E22] border-b-2 placeholder:font-bold  bg-[#ff003c] border-[#1D1E22] text-[#1D1E22] fontButton font-bold"
                   name="brand"
+                  defaultValue={brand}
                   required
                 >
                   <option value="netflix">NetFlix</option>
@@ -190,6 +214,7 @@ export const AddProduct = () => {
                 <select
                   className="block w-full px-4 py-2 mt-2   outline-none  placeholder-[#1D1E22] border-b-2 placeholder:font-bold  bg-[#ff003c] border-[#1D1E22] text-[#1D1E22] fontButton font-bold"
                   name="type"
+                  defaultValue={type}
                   required
                 >
                   <option value="movie">Movie</option>
@@ -207,7 +232,8 @@ export const AddProduct = () => {
                 <div className="block w-full px-4 py-2 mt-2   outline-none  placeholder-[#1D1E22] border-b-2 placeholder:font-bold  bg-[#ff003c] border-[#1D1E22] text-[#1D1E22] fontButton font-bold">
                   <Rate
                     required
-                    onChange={(value) => setRating(value)}
+                    // Sets the initial/dynamic value
+                    onChange={(value) => setRating(value)} // Allows the user to change the value
                     character={({ index, value }) => {
                       if (value >= index + 1) {
                         return <StarFilled style={{ color: "#1D1E22" }} />;
@@ -224,6 +250,7 @@ export const AddProduct = () => {
               </label>
               <textarea
                 id="description"
+                defaultValue={description}
                 required
                 name="description"
                 placeholder="Description"
@@ -233,7 +260,7 @@ export const AddProduct = () => {
 
             <div className="flex justify-end mt-6">
               <button className="btn btn--secondary ">
-                <span className="btn__content ">Add</span>
+                <span className="btn__content ">Update</span>
                 <span className="btn__glitch"></span>
                 <span className="btn__label"></span>
                 <input type="submit" />

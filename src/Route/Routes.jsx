@@ -10,6 +10,7 @@ import { BrandDetails } from "../Page/Brands/BrandDetails.jsx";
 import { ProductDetails } from "../Page/Product Details/ProductDetails.jsx";
 import { MyCart } from "../Page/My Cart/MyCart.jsx";
 import { Error } from "../Page/Error Page/Error.jsx";
+import { Update } from "../Page/Update/Update.jsx";
 
 const router = createBrowserRouter([
   {
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/product/:id",
+        path: "/product/:id/:brand",
         element: (
           <PrivateRoute>
             <ProductDetails />
@@ -71,6 +72,14 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () => fetch("http://localhost:5001/products"),
+      },
+      {
+        path: "/update/:id/:brand",
+        element: (
+          <PrivateRoute>
+            <Update />
+          </PrivateRoute>
+        ),
       },
     ],
   },

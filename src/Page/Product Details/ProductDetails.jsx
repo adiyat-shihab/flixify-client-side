@@ -9,7 +9,7 @@ export const ProductDetails = () => {
   const [data, setData] = useState({});
   console.log(data);
   useEffect(() => {
-    fetch(`http://localhost:5001/netflix/${params.id}`)
+    fetch(`http://localhost:5001/${params.brand}/${params.id}`)
       .then((data) => data.json())
       .then((result) => setData(result));
   }, []);
