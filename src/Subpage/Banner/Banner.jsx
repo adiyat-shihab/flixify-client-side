@@ -31,7 +31,7 @@ export const Banner = () => {
             {!user && (
               <Link to={"/register"}>
                 <button className="btn btn--secondary">
-                  <span className="btn__content ">Join Now</span>
+                  <span className="btn__content ">Join Now </span>
                   <span className="btn__glitch"></span>
                   <span className="btn__label"></span>
                 </button>
