@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 export const BrandDetails = () => {
   const param = useParams();
-  const loader = useLoaderData();
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -12,6 +11,6 @@ export const BrandDetails = () => {
       .then((data) => setData(data));
   }, []);
 
-  console.log(param.name);
+  console.log(data);
   return <></>;
 };

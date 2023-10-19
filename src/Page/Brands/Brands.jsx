@@ -9,7 +9,7 @@ export const Brands = ({ loader }) => {
       }
     >
       {loader.map((data) => (
-        <BrandsList data={data} />
+        <BrandsList data={data} key={data.id} />
       ))}
     </div>
   );
