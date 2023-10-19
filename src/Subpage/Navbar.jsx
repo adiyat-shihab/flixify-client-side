@@ -48,7 +48,7 @@ export const Navbar = () => {
               Add Product
             </button>
           </Link>{" "}
-          <Link to={"/"}>
+          <Link to={"/mycart"}>
             <button
               className={
                 "cursor-pointer navLink bg-[#ff003c] text-[#050a0e] font-bold text-[0.85rem] fontButton uppercase h-[4.5rem] px-4"

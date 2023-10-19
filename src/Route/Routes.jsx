@@ -8,6 +8,7 @@ import { AddProduct } from "../Page/Add Product/AddProduct.jsx";
 import { PrivateRoute } from "../Component/Private Route/PrivateRoute.jsx";
 import { BrandDetails } from "../Page/Brands/BrandDetails.jsx";
 import { ProductDetails } from "../Page/Product Details/ProductDetails.jsx";
+import { MyCart } from "../Page/My Cart/MyCart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,16 @@ const router = createBrowserRouter([
             <ProductDetails />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/mycart",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <MyCart />
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5001/products"),
       },
     ],
   },
