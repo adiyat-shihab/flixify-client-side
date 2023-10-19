@@ -15,18 +15,20 @@ export const Navbar = () => {
   return (
     <>
       <div className={"bg-[#000000] flex justify-between items-center px-14  "}>
-        <div className={"flex  items-center "}>
-          <img
-            src="https://i.ibb.co/1M5qyPW/Abstract-Breaking-Live-News-Free-Logo.png"
-            alt=""
-            className={"h-[7.0625rem]"}
-          />
-          <img
-            src="https://i.ibb.co/xFfBMC4/Abstract-Breaking-Live-News-Free-Logo-2.png"
-            alt=""
-            className={" h-[7.0625rem] -ml-6"}
-          />
-        </div>
+        <Link to={"/"}>
+          <div className={"flex  items-center "}>
+            <img
+              src="https://i.ibb.co/1M5qyPW/Abstract-Breaking-Live-News-Free-Logo.png"
+              alt=""
+              className={"h-[7.0625rem]"}
+            />
+            <img
+              src="https://i.ibb.co/xFfBMC4/Abstract-Breaking-Live-News-Free-Logo-2.png"
+              alt=""
+              className={" h-[7.0625rem] -ml-6"}
+            />
+          </div>
+        </Link>
         <div>
           <Link to={"/"}>
             <button

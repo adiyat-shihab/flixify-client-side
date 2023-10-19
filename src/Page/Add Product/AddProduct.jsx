@@ -3,6 +3,7 @@ import { StarFilled, StarOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
 import { useState } from "react";
 import "/src/Page/Add Product/Border/Border.css";
+import { toast, Toaster } from "react-hot-toast";
 export const AddProduct = () => {
   const [rating, setRating] = useState(0);
   const handleSubmit = (e) => {
@@ -18,20 +19,17 @@ export const AddProduct = () => {
     const product = { brand, name, image, price, type, description, rating };
 
     if (brand === "netflix") {
-      return fetch(
-        "https://b8a10-brandshop-server-side-adiyat-shihab-l6kex1d1h.vercel.app/netflixpost",
-        {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(product),
+      return fetch("http://localhost:5001/netflixpost", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
         },
-      )
+        body: JSON.stringify(product),
+      })
         .then((res) => res.json())
         .then((data) => {
           if (data?.insertedId) {
-            console.log("user added to the database");
+            toast.success("Product Add Successfully");
           }
         });
     }
@@ -122,7 +120,7 @@ export const AddProduct = () => {
       <div className="gradientBackground p-[3px]">
         <section className="max-w-4xl p-6 mx-auto bg-[#FD003C] text-[#050a0e]  shadow-md dark:bg-gray-800 pt-20 pb-20">
           <h1 className="text-xl font-bold   capitalize dark:text-white fontButton text-[#050a0e] ">
-            Account settings
+            Add Product
           </h1>
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
@@ -243,6 +241,9 @@ export const AddProduct = () => {
             </div>
           </form>
         </section>
+      </div>
+      <div>
+        <Toaster position="top-center" reverseOrder={false} />
       </div>
     </div>
   );

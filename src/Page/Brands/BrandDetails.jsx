@@ -1,12 +1,17 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Rate } from "antd";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
+import { Carousel } from "antd";
 
 export const BrandDetails = () => {
+  const width = {
+    width: "100rem",
+    height: "25rem",
+  };
   const param = useParams();
   const [datas, setDatas] = useState([]);
-
+  console.log(datas);
   useEffect(() => {
     fetch(`http://localhost:5001/${param.name}`)
       .then((data) => data.json())
@@ -15,6 +20,37 @@ export const BrandDetails = () => {
 
   return (
     <>
+      <div className={"py-16 bg-black"}>
+        {" "}
+        {datas.length !== 0 && (
+          <Carousel autoplay>
+            <div className={"flex justify-center bg-black"}>
+              <img
+                src={datas[0]?.image}
+                style={width}
+                alt=""
+                className={"w-fit h-fit mx-auto"}
+              />
+            </div>
+            <div className={"bg-black"}>
+              <img
+                src={datas[1]?.image}
+                style={width}
+                alt=""
+                className={"mx-auto"}
+              />
+            </div>
+            <div className={"bg-black"}>
+              <img
+                src={datas[2]?.image}
+                style={width}
+                alt=""
+                className={"mx-auto"}
+              />
+            </div>
+          </Carousel>
+        )}
+      </div>
       <div
         className={
           "grid grid-cols-3 justify-items-center gap-y-6 py-16 bg-[#050a0e] "
@@ -29,12 +65,11 @@ export const BrandDetails = () => {
             <div className="  w-96 bg-[#050a0e] h-full ">
               <div
                 className={
-                  "flex justify-center h-[200px] items-center my-auto "
+                  "flex justify-center h-[200px] items-center px-4 my-auto "
                 }
               >
                 <img
                   src={data.image}
-                  alt="Shoes"
                   className=" rounded mt-4  h-full my-auto"
                 />
               </div>
