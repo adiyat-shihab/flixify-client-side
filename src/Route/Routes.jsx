@@ -9,11 +9,13 @@ import { PrivateRoute } from "../Component/Private Route/PrivateRoute.jsx";
 import { BrandDetails } from "../Page/Brands/BrandDetails.jsx";
 import { ProductDetails } from "../Page/Product Details/ProductDetails.jsx";
 import { MyCart } from "../Page/My Cart/MyCart.jsx";
+import { Error } from "../Page/Error Page/Error.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
