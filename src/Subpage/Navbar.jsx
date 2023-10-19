@@ -74,7 +74,7 @@ export const Navbar = () => {
                 >
                   <img
                     className={"w-full rounded-full h-full "}
-                    src={user?.photoURL}
+                    src={user.photoURL}
                     alt="No image"
                   />
                 </div>

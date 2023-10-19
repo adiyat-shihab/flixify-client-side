@@ -5,7 +5,7 @@ export const BrandsList = ({ data }) => {
   return (
     <div
       className={
-        "bg-gradient-to-tl from-violet-900 via-fuchsia-600 to-red-600 p-[1px] hover:bg-gradient-to-tl hover:from-red-900 hover:via-fuchsia-600 hover:to-violet-600   "
+        "bg-gradient-to-tl from-violet-900 via-fuchsia-600 to-red-600 p-[1px] hover:bg-gradient-to-tl hover:from-red-900 hover:via-fuchsia-600 hover:to-violet-600 gradientbrand  "
       }
     >
       <div className="  w-96 bg-[#050a0e] h-full">
@@ -18,7 +18,7 @@ export const BrandsList = ({ data }) => {
             />
           </div>
         </figure>
-        <div className="card-body items-center text-center my-8">
+        <div className="card-body items-center text-center py-8">
           <Link to={`/brandDetails/${id}`}>
             <button className="btn btn--secondary ">
               <span className="btn__content ">{brand_name}</span>
