@@ -6,6 +6,22 @@ import { useContext, useState } from "react";
 export const Login = () => {
   const { SignIn, googleSignIn } = useContext(authContext);
   const [validation, setValidation] = useState("");
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 2000);
+      })
+      .catch((error) => {
+        if (error.code === "auth/invalid-login-credentials") {
+          setValidation("Email/Password doesn't match");
+          console.log(error);
+        }
+      });
+  };
   const handleSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -37,7 +53,10 @@ export const Login = () => {
             " h-full absolute top-0 flex justify-center items-center w-full"
           }
         >
-          <LoginForm handleSignIn={handleSignIn} />
+          <LoginForm
+            handleSignIn={handleSignIn}
+            handleGoogleLogin={handleGoogleLogin}
+          />
         </div>
       </div>
     </>

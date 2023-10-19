@@ -3,7 +3,7 @@ import { useState } from "react";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
-export const LoginForm = ({ handleSignIn }) => {
+export const LoginForm = ({ handleSignIn, handleGoogleLogin }) => {
   const [see, setSee] = useState(false);
   return (
     <>
@@ -114,7 +114,9 @@ export const LoginForm = ({ handleSignIn }) => {
                 <ul className="flex justify-between -mx-2 mb-12">
                   <li className="px-2 w-full">
                     <div
+                      onClick={handleGoogleLogin}
                       className="
+                        cursor-pointer
                         flex
                         h-11
                         items-center
