@@ -19,7 +19,7 @@ export const AddProduct = () => {
     const product = { brand, name, image, price, type, description, rating };
 
     fetch(
-      `https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/${brand}post`,
+      `https://b8a10-brandshop-server-side-adiyat-shihab.vercel.app/${brand}post`,
       {
         method: "POST",
         headers: {

@@ -10,7 +10,7 @@ export const ProductDetails = () => {
   console.log(data);
   useEffect(() => {
     fetch(
-      `https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/${params.brand}/${params.id}`,
+      `https://b8a10-brandshop-server-side-adiyat-shihab.vercel.app/${params.brand}/${params.id}`,
     )
       .then((data) => data.json())
       .then((result) => setData(result));
@@ -19,7 +19,7 @@ export const ProductDetails = () => {
   const products = { brand, name, image, price, type, description, rating };
   const handleStore = () => {
     fetch(
-      "https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/product",
+      "https://b8a10-brandshop-server-side-adiyat-shihab.vercel.app/product",
       {
         method: "POST",
         headers: {
@@ -60,7 +60,11 @@ export const ProductDetails = () => {
               "bg-gradient-to-tl from-violet-900 via-fuchsia-600 to-red-600 p-[2px] hover:bg-gradient-to-tl hover:from-red-900 hover:via-fuchsia-600 hover:to-violet-600 gradientbrand mb-20 xl:mb-0 "
             }
           >
-            <img src={data.image} alt="no image" className={"max-w-none "} />
+            <img
+              src={data.image}
+              alt="no image"
+              className={"max-w-none w-[300px] xl:w-[458px] "}
+            />
           </div>
           <div>
             <Toaster position="top-center" reverseOrder={false} />

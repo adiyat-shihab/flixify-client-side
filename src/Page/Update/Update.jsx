@@ -11,7 +11,7 @@ export const Update = () => {
   console.log(data);
   useEffect(() => {
     fetch(
-      `https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/${params.brand}/${params.id}`,
+      `https://b8a10-brandshop-server-side-adiyat-shihab.vercel.app/${params.brand}/${params.id}`,
     )
       .then((data) => data.json())
       .then((result) => {
@@ -35,7 +35,7 @@ export const Update = () => {
     const product = { brand, name, image, price, type, description, rating };
 
     return fetch(
-      `https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/${brand}put/${data._id}`,
+      `https://b8a10-brandshop-server-side-adiyat-shihab.vercel.app/${brand}put/${data._id}`,
       {
         method: "PUT",
         headers: {

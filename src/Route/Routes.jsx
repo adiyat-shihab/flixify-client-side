@@ -73,7 +73,7 @@ const router = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            "https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/products",
+            "https://b8a10-brandshop-server-side-adiyat-shihab.vercel.app/products",
           ),
       },
       {

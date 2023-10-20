@@ -8,7 +8,7 @@ export const MyCartList = ({ data, mainData, setMainData }) => {
   console.log(data);
   const handleDelete = (_id) => {
     fetch(
-      `https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/products/${_id}`,
+      `https://b8a10-brandshop-server-side-adiyat-shihab.vercel.app/products/${_id}`,
       {
         method: "DELETE",
       },
