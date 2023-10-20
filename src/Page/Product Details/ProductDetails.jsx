@@ -40,14 +40,14 @@ export const ProductDetails = () => {
       {" "}
       <div
         className={
-          "bg-black flex justify-between px-[15.5rem] items-center py-[4.38rem] h-screen"
+          "bg-black flex flex-col-reverse  xl:flex-row justify-between px-4 xl:px-[15.5rem] items-center py-[4.38rem] xl:h-screen "
         }
       >
-        <div className={"text-white"}>
+        <div className={"text-white mt-10 xl:mt-20"}>
           <h1 className={"font-bold text-[3.25rem] mb-[1.25rem]"}>
             {data.name}
           </h1>
-          <p className={" w-[32.0625rem] "}>{data.description}</p>
+          <p className={" xl:w-[32.0625rem] "}>{data.description}</p>
           <button className="btn btn--secondary my-5" onClick={handleStore}>
             <span className="btn__content ">Add To Cart</span>
             <span className="btn__glitch"></span>
@@ -57,10 +57,10 @@ export const ProductDetails = () => {
         <div>
           <div
             className={
-              "bg-gradient-to-tl from-violet-900 via-fuchsia-600 to-red-600 p-[2px] hover:bg-gradient-to-tl hover:from-red-900 hover:via-fuchsia-600 hover:to-violet-600 gradientbrand  "
+              "bg-gradient-to-tl from-violet-900 via-fuchsia-600 to-red-600 p-[2px] hover:bg-gradient-to-tl hover:from-red-900 hover:via-fuchsia-600 hover:to-violet-600 gradientbrand mb-20 xl:mb-0 "
             }
           >
-            <img src={data.image} alt="no image" className={"w-[34.6875rem]"} />
+            <img src={data.image} alt="no image" className={"max-w-none "} />
           </div>
           <div>
             <Toaster position="top-center" reverseOrder={false} />

@@ -56,7 +56,7 @@ export const BrandDetails = () => {
       </div>
       <div
         className={
-          "grid grid-cols-3 justify-items-center gap-y-6 py-16 bg-[#050a0e] "
+          "grid grid-cols-1 xl:grid-cols-3 justify-items-center gap-y-6 py-16 bg-[#050a0e] "
         }
       >
         {datas.map((data) => (

@@ -109,7 +109,7 @@ export const Navbar = () => {
       </div>
       <div
         className={
-          "bg-black sticky top-0 z-10   flex justify-between xl:hidden items-center"
+          "bg-[#000000] sticky top-0 z-10   flex justify-between xl:hidden items-center"
         }
       >
         <div className={"flex  items-center "}>
@@ -124,7 +124,7 @@ export const Navbar = () => {
             className={" h-[5.0625rem] -ml-6"}
           />
         </div>
-        <div className={"bg-black  pr-6"} onClick={() => setOpen(!open)}>
+        <div className={"  pr-6"} onClick={() => setOpen(!open)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             data-name="Layer 1"

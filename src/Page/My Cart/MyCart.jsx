@@ -11,7 +11,7 @@ export const MyCart = () => {
   return (
     <div
       className={
-        "grid grid-cols-3 bg-[#050a0e] justify-items-center gap-y-16 py-16"
+        "grid grid-cols-1 xl:grid-cols-3 bg-[#050a0e] justify-items-center gap-y-16 py-16"
       }
     >
       {mainData.length === 0 ? (

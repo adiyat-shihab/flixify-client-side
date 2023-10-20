@@ -18,7 +18,7 @@ export const LoginForm = ({ handleSignIn, handleGoogleLogin }) => {
             <div className="w-full px-4">
               <div
                 className="
-               w-[458px]
+               xl:w-[458px]
                mx-auto
                text-center
                bg-[#000000]

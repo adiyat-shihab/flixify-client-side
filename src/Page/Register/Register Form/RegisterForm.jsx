@@ -20,10 +20,11 @@ export const RegisterForm = ({
         <section className="  ">
           <div className="container">
             <div className="flex flex-wrap -mx-4">
-              <div className="w-full px-4">
+              <div className=" px-4">
                 <div
                   className="
-               w-[458px]
+               xl:w-[458px]
+
                mx-auto
                text-center
                bg-[#000000]
