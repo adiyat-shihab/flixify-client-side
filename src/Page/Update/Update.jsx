@@ -32,103 +32,20 @@ export const Update = () => {
     console.log(brand, name, image, price, type, description, rating);
     const product = { brand, name, image, price, type, description, rating };
 
-    if (brand === "netflix") {
-      return fetch(`http://localhost:5001/neflixput/${data._id}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data?.modifiedCount) {
-            toast.success("Product Update  Successfully");
-          }
-        });
-    }
-    if (brand === "disney") {
-      return fetch("http://localhost:5001/disneypost", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.insertedId) {
-            console.log("user added to the database");
-            toast.success("Product Update  Successfully");
-          }
-        });
-    }
-    if (brand === "warnerbros") {
-      return fetch("http://localhost:5001/warnerbrospost", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.insertedId) {
-            console.log("user added to the database");
-            toast.success("Product Update  Successfully");
-          }
-        });
-    }
-    if (brand === "sony") {
-      return fetch("http://localhost:5001/sonypost", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.insertedId) {
-            console.log("user added to the database");
-            toast.success("Product Update  Successfully");
-          }
-        });
-    }
-    if (brand === "spotify") {
-      return fetch("http://localhost:5001/spotifypost", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.insertedId) {
-            console.log("user added to the database");
-            toast.success("Product Update  Successfully");
-          }
-        });
-    }
-    if (brand === "amazonprime") {
-      return fetch("http://localhost:5001/amazonprimepost", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.insertedId) {
-            console.log("user added to the database");
-            toast.success("Product Update  Successfully");
-          }
-        });
-    }
-    return console.log(product);
+    return fetch(`http://localhost:5001/${brand}put/${data._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data?.modifiedCount) {
+          toast.success("Product Update  Successfully");
+        }
+      });
   };
   return (
     <div
