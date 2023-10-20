@@ -3,10 +3,10 @@ export const Section = () => {
     <>
       <div
         className={
-          "bg-black flex justify-between px-[15.5rem] items-center py-[4.38rem]"
+          "bg-black flex flex-col xl:flex-row justify-between xl:px-[15.5rem] items-center py-[4.38rem]"
         }
       >
-        <div className={"text-white"}>
+        <div className={"text-white text-center"}>
           <h1 className={"font-bold text-[3.25rem] mb-[1.25rem]"}>
             Watch everywhere
           </h1>
