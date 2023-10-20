@@ -9,20 +9,25 @@ export const ProductDetails = () => {
   const [data, setData] = useState({});
   console.log(data);
   useEffect(() => {
-    fetch(`http://localhost:5001/${params.brand}/${params.id}`)
+    fetch(
+      `https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/${params.brand}/${params.id}`,
+    )
       .then((data) => data.json())
       .then((result) => setData(result));
   }, []);
   const { brand, name, image, price, type, description, rating } = data;
   const products = { brand, name, image, price, type, description, rating };
   const handleStore = () => {
-    fetch("http://localhost:5001/product", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
+    fetch(
+      "https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/product",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(products),
       },
-      body: JSON.stringify(products),
-    })
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.insertedId) {

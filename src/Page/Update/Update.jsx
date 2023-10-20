@@ -10,7 +10,9 @@ export const Update = () => {
   const [data, setData] = useState({});
   console.log(data);
   useEffect(() => {
-    fetch(`http://localhost:5001/${params.brand}/${params.id}`)
+    fetch(
+      `https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/${params.brand}/${params.id}`,
+    )
       .then((data) => data.json())
       .then((result) => {
         setData(result);
@@ -32,13 +34,16 @@ export const Update = () => {
     console.log(brand, name, image, price, type, description, rating);
     const product = { brand, name, image, price, type, description, rating };
 
-    return fetch(`http://localhost:5001/${brand}put/${data._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
+    return fetch(
+      `https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/${brand}put/${data._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(product),
       },
-      body: JSON.stringify(product),
-    })
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -113,15 +118,10 @@ export const Update = () => {
                 <select
                   className="block w-full px-4 py-2 mt-2   outline-none  placeholder-[#1D1E22] border-b-2 placeholder:font-bold  bg-[#ff003c] border-[#1D1E22] text-[#1D1E22] fontButton font-bold"
                   name="brand"
-                  defaultValue={brand}
+                  defaultValue={`${brand}`}
                   required
                 >
-                  <option value="netflix">NetFlix</option>
-                  <option value="disney">Disney</option>
-                  <option value="warnerbros">Warner Bros</option>
-                  <option value="amazonprime">Amazon Prime</option>
-                  <option value="spotify">Spotify</option>
-                  <option value="sony">Sony</option>
+                  <option value={brand}>{brand}</option>
                 </select>
               </div>
               <div>
@@ -149,8 +149,8 @@ export const Update = () => {
                 <div className="block w-full px-4 py-2 mt-2   outline-none  placeholder-[#1D1E22] border-b-2 placeholder:font-bold  bg-[#ff003c] border-[#1D1E22] text-[#1D1E22] fontButton font-bold">
                   <Rate
                     required
-                    // Sets the initial/dynamic value
-                    onChange={(value) => setRating(value)} // Allows the user to change the value
+                    defaultValue={data.rating}
+                    onChange={(value) => setRating(value)}
                     character={({ index, value }) => {
                       if (value >= index + 1) {
                         return <StarFilled style={{ color: "#1D1E22" }} />;

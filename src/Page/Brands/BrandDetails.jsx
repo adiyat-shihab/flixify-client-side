@@ -12,7 +12,9 @@ export const BrandDetails = () => {
   const param = useParams();
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5001/${param.name}`)
+    fetch(
+      `https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/${param.name}`,
+    )
       .then((data) => data.json())
       .then((data) => setDatas(data));
   }, []);

@@ -71,7 +71,10 @@ const router = createBrowserRouter([
             <MyCart />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5001/products"),
+        loader: () =>
+          fetch(
+            "https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/products",
+          ),
       },
       {
         path: "/update/:id/:brand",

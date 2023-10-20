@@ -18,96 +18,23 @@ export const AddProduct = () => {
     console.log(brand, name, image, price, type, description, rating);
     const product = { brand, name, image, price, type, description, rating };
 
-    if (brand === "netflix") {
-      return fetch("http://localhost:5001/netflixpost", {
+    fetch(
+      `https://b8a10-brandshop-server-side-adiyat-shihab-61d0c2rrn.vercel.app/${brand}post`,
+      {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify(product),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.insertedId) {
-            toast.success("Product Add Successfully");
-          }
-        });
-    }
-    if (brand === "disney") {
-      return fetch("http://localhost:5001/disneypost", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.insertedId) {
-            console.log("user added to the database");
-          }
-        });
-    }
-    if (brand === "warnerbros") {
-      return fetch("http://localhost:5001/warnerbrospost", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.insertedId) {
-            console.log("user added to the database");
-          }
-        });
-    }
-    if (brand === "sony") {
-      return fetch("http://localhost:5001/sonypost", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.insertedId) {
-            console.log("user added to the database");
-          }
-        });
-    }
-    if (brand === "spotify") {
-      return fetch("http://localhost:5001/spotifypost", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.insertedId) {
-            console.log("user added to the database");
-          }
-        });
-    }
-    if (brand === "amazonprime") {
-      return fetch("http://localhost:5001/amazonprimepost", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.insertedId) {
-            console.log("user added to the database");
-          }
-        });
-    }
+      },
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Product Add Successfully");
+        }
+      });
+
     return console.log(product);
   };
   return (
